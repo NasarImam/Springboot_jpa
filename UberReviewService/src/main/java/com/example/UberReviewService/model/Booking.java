@@ -1,16 +1,19 @@
 package com.example.UberReviewService.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Value;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 
 import java.security.PrivateKey;
 import java.util.Date;
-@SuperBuilder
+@Builder
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Booking extends BaseModel{
 
     // so when ever we try to create has a relation-ship between entity to entity class we must define relations like one-to-one manytoone etc
@@ -31,6 +34,9 @@ public class Booking extends BaseModel{
     private Date endTime;
 
     private Long totalDistance;
+
+    @ManyToOne
+    private Driver driver;
 
 
 }
